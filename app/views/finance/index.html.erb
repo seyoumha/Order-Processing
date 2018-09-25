@@ -1,0 +1,34 @@
+<!-- <h1>Finance Depts</h1>  -->
+<div class='container'>
+<td><%= link_to "Wating for Approval", finance_path(aasm_state: nil), class: "waves-effect orange btn"%></td>
+<td><%= link_to "Approved Orders", finance_path(aasm_state: 'ready_for_payment'), class: "waves-effect green btn"%></td>
+<td><%= link_to "Errors", finance_path(aasm_state: 'failed'), class: "waves-effect red btn"%></td>
+<table>
+  <tr>
+    <th>customer</th>
+    <th>cc_num</th>
+    <th>car</th>
+    <th>milage</th>
+    <th>price</th>
+    <th>errors</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%=order.name %></td>
+      <td><%=order.cc_num %></td>
+      <td><%=order.make %>, <%=order.model %></td>
+      <td><%=order.milage %></td>
+      <td><%=order.price %></td>
+      <%if order.aasm_state == 'created'%>
+        <td><%= link_to "Approve", approve_path(order.id), class: "waves-effect green btn", method: 'post'%></td>
+        <td><%= link_to "Decline", failure_path(order.id), class: "waves-effect waves-light btn", method:'post'%></td>
+      <%elsif order.aasm_state == 'failed'%>
+        <td><p class="red-text"><%= order.all_notes%></p> </td> 
+      <%else%>
+        <td><p class="green-text"><%= order.all_notes%></p> </td> 
+
+      <%end%>
+      </td>
+    </tr>
+  <% end %>
+</table></div>

@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>name</th>
+    <th>email</th>
+    <th>full_address</th>
+    <th>cc_num</th>
+    <th>phone</th>
+    <th>make</th>
+    <th>model</th>
+    <th>milage</th>
+    <th>price</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%=order.name %></td>
+      <td><%=order.email %></td>
+      <td><%=order.full_address %></td>
+      <td><%=order.cc_num %></td>
+      <td><%=order.phone %></td>
+      <td><%=order.make %></td>
+      <td><%=order.model %></td>
+      <td><%=order.milage %></td>
+      <td><%=order.price %></td>
+    </tr>
+  <% end %>
+</table>

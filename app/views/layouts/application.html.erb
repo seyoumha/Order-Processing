@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OrderProcessor</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    
+    <nav class="darken-4" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Order procssing</a>
+        <ul class="right hide-on-med-and-down">
+          <%= render partial: 'layouts/nav'%>          
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <%= render partial: 'layouts/nav'%>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+      </div>
+    </nav>
+
+    
+    <div class='container'>
+      <span class='right'><%= current_user_and_role %></span>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+<% if session[:user_id] %>
+  <li><%= link_to 'logout',  logout_url, method: :delete %></li>
+<%else%>
+  <li><%= link_to 'login',  login_url %></li>
+<%end%>

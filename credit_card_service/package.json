@@ -1,0 +1,11 @@
+{
+  "name": "credit_card_service",
+  "version": "1.0.0",
+  "description": "fake api to authenticate credit card  orders",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hanna",
+  "license": "ISC"
+}
