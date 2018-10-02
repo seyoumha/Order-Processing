@@ -7,8 +7,10 @@ class ProcessPaymentJob < ApplicationJob
   end
 
   def self.schedule_payments
+    Delayed::Worker.logger.debug("Scheduled #{Order.ready_for_payment.count} orders for payment")
+
     Order.ready_for_payment.each do |o|
-       ProcessPaymentJob.perform_later(o.id)
+      ProcessPaymentJob.perform_later(o.id)
     end
   end
 end
